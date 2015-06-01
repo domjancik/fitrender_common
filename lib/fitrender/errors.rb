@@ -1,5 +1,9 @@
 module Fitrender
-  class InterfaceNotImplementedException < NoMethodError
+  class InterfaceNotImplementedError < NoMethodError
+
+  end
+
+  class BackendNotAvailableError < RuntimeError
 
   end
 end

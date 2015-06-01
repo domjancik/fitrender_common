@@ -41,7 +41,18 @@ module Fitrender
         raise Fitrender::InterfaceNotImplementedError
       end
 
+      ### Status
+
       def available?
+        raise Fitrender::InterfaceNotImplementedError
+      end
+
+      def available!
+        raise Fitrender::BackendNotAvailableError unless available?
+      end
+
+      # List nodes in the pool/cluster
+      def nodes
         raise Fitrender::InterfaceNotImplementedError
       end
 
