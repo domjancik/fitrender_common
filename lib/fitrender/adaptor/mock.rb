@@ -1,7 +1,9 @@
+require 'fitrender/adaptor'
+
 module Fitrender
   module Adaptor
-    # Reference for implementing compute backend adaptors for FITRender
-    class Reference
+    # Mock implementation of a FITRender compute backend adaptor
+    class Mock < BaseAdaptor
       # Submit a new scene
       # @return [Array] array of internal job ids
       # @param [Fitrender::Scene] scene
@@ -28,8 +30,17 @@ module Fitrender
 
       end
 
-      # Get a list of supported renderers
-      def supported_renderers
+      def running?
+        true
+      end
+
+      ### Adaptor feature infos
+
+      def feature_file_transfer?
+        true
+      end
+
+      def feature_renderers
 
       end
     end

@@ -1,2 +1,3 @@
 require 'fitrender/common/version'
-require 'fitrender/adaptor/reference'
+require 'fitrender/adaptor/mock'
+require 'fitrender/errors'
