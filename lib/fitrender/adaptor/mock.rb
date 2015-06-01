@@ -30,7 +30,7 @@ module Fitrender
 
       end
 
-      def running?
+      def available?
         true
       end
 

@@ -41,7 +41,7 @@ module Fitrender
         raise Fitrender::InterfaceNotImplementedError
       end
 
-      def running?
+      def available?
         raise Fitrender::InterfaceNotImplementedError
       end
 
