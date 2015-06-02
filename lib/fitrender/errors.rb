@@ -6,4 +6,8 @@ module Fitrender
   class BackendNotAvailableError < RuntimeError
 
   end
+
+  class NotFoundError < RuntimeError
+
+  end
 end

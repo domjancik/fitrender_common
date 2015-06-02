@@ -1,5 +1,3 @@
-require 'fitrender/adaptor'
-
 module Fitrender
   module Adaptor
     # Mock implementation of a FITRender compute backend adaptor
@@ -7,15 +5,15 @@ module Fitrender
       # Submit a new scene
       # @return [Array] array of internal job ids
       # @param [Fitrender::Scene] scene
-      def submit(scene)
+      def scene_submit(scene)
         [ 0 ]
       end
 
-      def status(job_id)
+      def job_status(job_id)
 
       end
 
-      def delete(job_id)
+      def job_delete(job_id)
         true
       end
 
