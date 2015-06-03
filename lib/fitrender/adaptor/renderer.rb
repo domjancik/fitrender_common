@@ -1,6 +1,8 @@
 module Fitrender
   module Adaptor
     class Renderer
+      attr_accessor :name, :extension, :generator, :version
+
       # @param [String] name The name of the renderer, eg. Blender
       # @param [String] extension Supported file extension by this renderer, eg. blend
       # @param [Object] generator
@@ -21,7 +23,13 @@ module Fitrender
       end
 
       def generate_submissions(scene)
-        @generator.generate scene
+        @generator.generate scene, settings
+      end
+
+      # Serialize all settings into a hash
+      def settings
+        # TODO
+        {}
       end
     end
   end

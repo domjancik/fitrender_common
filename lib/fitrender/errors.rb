@@ -10,4 +10,12 @@ module Fitrender
   class NotFoundError < RuntimeError
 
   end
+
+  class SubmissionFailedError < RuntimeError
+
+  end
+
+  class RendererNotFoundError < RuntimeError
+
+  end
 end

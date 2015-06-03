@@ -1,8 +1,35 @@
 require 'spec_helper'
 
 describe Fitrender::Adaptor::BaseAdaptor do
+  RENDERER_NAME = 'Renderer'
+  RENDERER_EXTENSION = '.render'
+  RENDERER_NAME_2 = 'Other renderer'
+
+  before :example do
+    @adaptor = Fitrender::Adaptor::BaseAdaptor.new
+    @scene = Fitrender::Adaptor::Scene.new
+    @scene.renderer = RENDERER_NAME
+    @renderer = Fitrender::Adaptor::Renderer.new(RENDERER_NAME, RENDERER_EXTENSION, nil)
+  end
+
   it 'has a version number' do
     expect(Fitrender::Common::VERSION).not_to be nil
+  end
+
+  it 'supports adding renderers' do
+    expect(@adaptor.renderers.count).to eq(0)
+    @adaptor.add_renderer @renderer
+    expect(@adaptor.renderers.count).to eq(1)
+    expect(@adaptor.renderers).to include(@renderer)
+  end
+
+  it 'detects renderer from a scene' do
+    @adaptor.add_renderer @renderer
+    expect(@adaptor.detect_renderer(@scene)).to eq(@renderer)
+  end
+
+  it 'throws an error when the renderer is not found' do
+    expect { @adaptor.detect_renderer(@scene) }.to raise_error(Fitrender::RendererNotFoundError)
   end
 end
 

@@ -16,6 +16,8 @@ module Fitrender
       # TODO: Default settings saving/retrieval using ENV Vars
       # TODO: Settings define method can take blocks to do for save: load:
 
+      attr_accessor :renderers
+
       def initialize
         @settings = {}
         @renderers = []
@@ -47,6 +49,13 @@ module Fitrender
         raise Fitrender::InterfaceNotImplementedError
       end
 
+      def detect_renderer(scene)
+        renderer_name = scene.renderer
+        renderer = @renderers.find { |renderer| renderer.name.eql? renderer_name }
+        raise Fitrender::RendererNotFoundError unless renderer
+        renderer
+      end
+
       ### Job administration
 
       def job_status(job_id)
@@ -60,7 +69,11 @@ module Fitrender
       ### Configuration
 
       def add_config(name, *args)
+        # TODO
+      end
 
+      def read_config
+        # TODO
       end
 
       # Get an overview of configurable variabels of the compute backend
