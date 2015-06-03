@@ -15,10 +15,14 @@ describe Fitrender::Adaptor::Node do
     @node = Fitrender::Adaptor::Node.new(ID, STATE, ATTRIBUTES)
   end
 
+  def expect_values(node)
+    expect(node.id).to eq(ID)
+    expect(node.state).to eq(STATE)
+    expect(node.attributes).to eq(ATTRIBUTES)
+  end
+
   it 'holds given values' do
-    expect(@node.id).to eq(ID)
-    expect(@node.state).to eq(STATE)
-    expect(@node.attributes).to eq(ATTRIBUTES)
+    expect_values(@node)
   end
 
   it 'serializes into a hash' do
@@ -37,8 +41,18 @@ describe Fitrender::Adaptor::Node do
 
     node = Fitrender::Adaptor::Node.from_hash(hash)
 
-    expect(node.id).to eq(ID)
-    expect(node.state).to eq(STATE)
-    expect(node.attributes).to eq(ATTRIBUTES)
+    expect_values(node)
+  end
+
+  it 'deserializes from a string keyed hash' do
+    hash = {
+        'id' => ID,
+        'state' => STATE,
+        'attributes' => ATTRIBUTES
+    }
+
+    node = Fitrender::Adaptor::Node.from_hash(hash)
+
+    expect_values(node)
   end
 end

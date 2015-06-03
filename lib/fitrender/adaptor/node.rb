@@ -20,7 +20,10 @@ module Fitrender
 
       # Deserialize from a hash
       def self.from_hash(hash)
-        new hash[:id], hash[:state], hash[:attributes]
+        id = hash[:id] || hash['id']
+        state = hash[:state] || hash['state']
+        attributes = hash[:attributes] || hash['attributes']
+        new id, state, attributes
       end
     end
   end
