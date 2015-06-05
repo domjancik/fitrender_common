@@ -58,7 +58,15 @@ module Fitrender
 
       ### Job administration
 
-      def job_status(job_id)
+      def job(job_id)
+        {
+            type: 'Job',
+            id: job_id,
+            state: job_state(job_id)
+        }
+      end
+
+      def job_state(job_id)
         raise Fitrender::InterfaceNotImplementedError
       end
 
