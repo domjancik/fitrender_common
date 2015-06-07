@@ -16,10 +16,14 @@ module Fitrender
 
       def to_hash
         {
-            name: @name,
-            extension: @extension,
-            version: @version
+            'name' => @name,
+            'extension' => @extension,
+            'version' => @version
         }
+      end
+
+      def self.from_hash(hash)
+        self.new hash['name'], hash['extension'], nil, hash['version']
       end
 
       def generate_submissions(scene)
