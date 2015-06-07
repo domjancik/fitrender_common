@@ -22,7 +22,7 @@ describe Fitrender::Adaptor::BaseAdaptor do
     @adaptor.add_renderer @renderer
     expect(@adaptor.renderers.count).to eq(1)
     expect(@adaptor.renderers).to include(@renderer)
-    expect { @adaptor.renderer(RENDERER_NAME) }.to_not raise_error(Fitrender::RendererNotFoundError)
+    expect(@adaptor.renderer(RENDERER_NAME)).to eq(@renderer)
   end
 
   it 'detects renderer from a scene' do

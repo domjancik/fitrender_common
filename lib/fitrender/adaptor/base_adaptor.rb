@@ -134,6 +134,7 @@ module Fitrender
       def renderer(renderer_id)
         renderer = @renderers.find { |renderer| renderer.name.eql?(renderer_id) }
         raise Fitrender::RendererNotFoundError.new(renderer_id) unless renderer
+        renderer
       end
 
       def feature_file_transfer?
