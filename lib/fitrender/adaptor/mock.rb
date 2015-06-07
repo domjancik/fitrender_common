@@ -20,7 +20,7 @@ module Fitrender
       # Get an overview of configurable variabels of the compute backend
       # @return [Hash] Hash of configurable variables and values
       def config_overview
-        { config_variable: config_value }
+        { config_variable: option_value }
       end
 
       # Set a config variable in the backend

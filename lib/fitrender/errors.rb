@@ -18,4 +18,8 @@ module Fitrender
   class RendererNotFoundError < RuntimeError
 
   end
+
+  class ConfigError < RuntimeError
+
+  end
 end

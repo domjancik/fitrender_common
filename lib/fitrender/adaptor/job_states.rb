@@ -7,7 +7,7 @@ module Fitrender
       JOB_STATE_FAILED = 'failed'
       JOB_STATE_OTHER = 'other'
 
-      NODE_STATES = [
+      JOB_STATES = [
         JOB_STATE_IDLE,
         JOB_STATE_RUNNING,
         JOB_STATE_COMPLETED,

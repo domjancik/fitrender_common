@@ -1,3 +1,7 @@
+require 'fitrender/utils'
+require 'fitrender/option'
+require 'fitrender/configurable'
+require 'fitrender/configurable_with_file'
 require 'fitrender/errors'
 require 'fitrender/common/version'
 require 'fitrender/adaptor'

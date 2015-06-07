@@ -5,21 +5,17 @@ module Fitrender
           :scene_submit,
           :job_status,
           :job_delete,
-          :config_overview,
-          :config_set,
+          :options_list,
+          :option_set_value,
+          :option_get,
           :available?,
           :nodes,
           :node
       ]
 
-      # TODO: Settings define method
-      # TODO: Default settings saving/retrieval using ENV Vars
-      # TODO: Settings define method can take blocks to do for save: load:
-
       attr_accessor :renderers
 
       def initialize
-        @settings = {}
         @renderers = []
       end
 
@@ -76,13 +72,11 @@ module Fitrender
 
       ### Configuration
 
-      def add_config(name, *args)
-        # TODO
-      end
-
-      def read_config
-        # TODO
-      end
+      # From configurable:
+      # config_add
+      # config_set
+      # config_get
+      # config_list
 
       # Get an overview of configurable variabels of the compute backend
       # @return [Hash] Hash of configurable variables and values
@@ -101,6 +95,8 @@ module Fitrender
         raise Fitrender::InterfaceNotImplementedError
       end
 
+      # Make sure the backend is available.
+      # Throws Fitrender::BackendNotAvailableError unless the backend is available
       def available!
         raise Fitrender::BackendNotAvailableError unless available?
       end
