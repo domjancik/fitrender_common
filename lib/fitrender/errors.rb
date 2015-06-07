@@ -15,7 +15,7 @@ module Fitrender
 
   end
 
-  class RendererNotFoundError < RuntimeError
+  class RendererNotFoundError < NotFoundError
 
   end
 

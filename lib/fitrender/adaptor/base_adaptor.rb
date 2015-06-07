@@ -127,8 +127,13 @@ module Fitrender
         @renderers << renderer
       end
 
-      def feature_renderers
-        @renderers.inject([]) { |acc, renderer| acc << renderer.to_hash }
+      def renderers
+        @renderers.inject([]) { |acc, renderer| acc << renderer }
+      end
+
+      def renderer(renderer_id)
+        renderer = @renderers.find { |renderer| renderer.name.eql?(renderer_id) }
+        raise Fitrender::RendererNotFoundError.new(renderer_id) unless renderer
       end
 
       def feature_file_transfer?

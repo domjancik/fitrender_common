@@ -18,9 +18,11 @@ describe Fitrender::Adaptor::BaseAdaptor do
 
   it 'supports adding renderers' do
     expect(@adaptor.renderers.count).to eq(0)
+    expect { @adaptor.renderer(RENDERER_NAME) }.to raise_error(Fitrender::RendererNotFoundError)
     @adaptor.add_renderer @renderer
     expect(@adaptor.renderers.count).to eq(1)
     expect(@adaptor.renderers).to include(@renderer)
+    expect { @adaptor.renderer(RENDERER_NAME) }.to_not raise_error(Fitrender::RendererNotFoundError)
   end
 
   it 'detects renderer from a scene' do
