@@ -18,16 +18,23 @@ module Fitrender
         {
             'name' => @name,
             'extension' => @extension,
-            'version' => @version
+            'version' => @version,
+            'generator_options' => @generator.options_hashlist
         }
       end
 
       def self.from_hash(hash)
-        self.new hash['name'], hash['extension'], nil, hash['version']
+        generator = Fitrender::Adaptor::Generator.new
+        generator.options_init_by_hashlist hash['generator_options']
+        self.new hash['name'], hash['extension'], generator, hash['version']
       end
 
       def generate_submissions(scene)
         @generator.generate scene, settings
+      end
+
+      def generator_options
+        @generator.options_list
       end
 
       # Serialize all settings into a hash

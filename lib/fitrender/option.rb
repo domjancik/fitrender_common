@@ -35,5 +35,17 @@ module Fitrender
       value = hash['value'].eql?(hash['default']) ? nil : hash['value']
       self.new hash['name'], hash['default'], hash['description'], value
     end
+
+    def ==(o)
+      o.class == self.class && o.state == state
+    end
+
+    alias_method :eql?, :==
+
+    protected
+
+    def state
+      [ @name, @default, @description, @value ]
+    end
   end
 end

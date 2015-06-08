@@ -3,6 +3,8 @@ module Fitrender
     # A class that dictates how to generate jobs based on a given scene.
     # Used in a Fitrender::Adaptor::Renderer object
     class Generator
+      include Fitrender::Configurable
+
       # Generate submissions scripts for a given scene
       # @param [Fitrender::Adaptor::Scene] scene
       # @param [Hash] settings renderer wide settings

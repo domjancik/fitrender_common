@@ -11,8 +11,7 @@ module Fitrender
     end
 
     def option_add(name, default, description)
-      @config[name] = Fitrender::Option.new name, default, description
-      option_load(name) if self.respond_to? :option_load
+      option_add_object Fitrender::Option.new name, default, description
     end
 
     def option_get(name)
@@ -33,6 +32,33 @@ module Fitrender
     def options_list
       # TODO rewrite to tuse key, value
       @config.inject([]) { |a, option| a << option[1] }
+    end
+
+    # Serialize all options into a list of hashes
+    def options_hashlist
+      @config.inject([]) { |a, option| a << option[1].to_hash }
+    end
+
+    # Initialize options from the given hashlist
+    def options_init_by_hashlist(hashlist)
+      hashlist.each do |option|
+        option_add_object Fitrender::Option.from_hash(option)
+      end
+    end
+
+    # Load option values from the given hash
+    def options_load_hash(hash)
+      hash.each do |key, value|
+        option_set_value key, value
+      end
+    end
+
+    private
+
+    def option_add_object(option)
+      name = option.name
+      @config[name] = option
+      option_load(name) if self.respond_to? :option_load
     end
   end
 end
