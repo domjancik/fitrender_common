@@ -11,6 +11,7 @@ module Fitrender
         @name = name
         @extension = extension
         @generator = generator
+        generator.renderer = self
         @version = version
       end
 
@@ -30,7 +31,7 @@ module Fitrender
       end
 
       def generate_submissions(scene)
-        @generator.generate scene, settings
+        @generator.generate scene
       end
 
       def generator_options

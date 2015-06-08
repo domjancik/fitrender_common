@@ -5,11 +5,13 @@ module Fitrender
     class Generator
       include Fitrender::Configurable
 
+      attr_accessor :renderer
+
       # Generate submissions scripts for a given scene
       # @param [Fitrender::Adaptor::Scene] scene
       # @param [Hash] settings renderer wide settings
       # @return [Array] A list of executable submissions scripts based on the scene and its settings
-      def generate(scene, settings = {})
+      def generate(scene)
         raise Fitrender::InterfaceNotImplementedError
       end
     end
