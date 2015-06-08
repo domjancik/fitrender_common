@@ -8,7 +8,7 @@ describe Fitrender::Adaptor::BaseAdaptor do
   before :example do
     @adaptor = Fitrender::Adaptor::BaseAdaptor.new
     @scene = Fitrender::Adaptor::Scene.new
-    @scene.renderer = RENDERER_NAME
+    @scene.renderer_id = RENDERER_NAME
     @renderer = Fitrender::Adaptor::Renderer.new(RENDERER_NAME, RENDERER_EXTENSION, nil)
   end
 

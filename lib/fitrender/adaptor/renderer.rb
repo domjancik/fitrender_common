@@ -11,7 +11,7 @@ module Fitrender
         @name = name
         @extension = extension
         @generator = generator
-        generator.renderer = self
+        generator.renderer = self unless generator.nil?
         @version = version
       end
 
