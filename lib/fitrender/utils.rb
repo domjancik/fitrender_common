@@ -43,5 +43,9 @@ module Fitrender
       word.downcase!
       word
     end
+
+    def self.extract_options(arr)
+      arr.last.is_a?(::Hash) ? arr.last : {}
+    end
   end
 end

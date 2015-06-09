@@ -2,7 +2,7 @@ module Fitrender
   module Adaptor
     class BaseAdaptor
       METHODS_TO_IMPLEMENT = [
-          :scene_submit,
+          :submit,
           :job_status,
           :job_delete,
           :options_list,
@@ -41,7 +41,7 @@ module Fitrender
       # Submit a new scene
       # @return [Array] array of internal job ids
       # @param [Fitrender::Scene] scene
-      def scene_submit(scene)
+      def submit(scene)
         raise Fitrender::InterfaceNotImplementedError
       end
 
@@ -137,8 +137,14 @@ module Fitrender
         renderer
       end
 
-      def feature_file_transfer?
-        raise Fitrender::InterfaceNotImplementedError
+      protected
+
+      # @param [Fitrender::Adaptor::Scene] scene
+      # @return [Array] an array of submissions from the scene's renderer's generator
+      def generate_submissions(scene)
+        raise Fitrender::FileNotFoundError unless FileTest.file? scene.path
+        arr = *(detect_renderer(scene).generate_submissions(scene))
+        arr
       end
     end
   end
