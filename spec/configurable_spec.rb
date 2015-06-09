@@ -26,8 +26,8 @@ describe Configurable do
     @object = ConfigurablePreset.new
   end
 
-  def has_option?(object, option_name)
-    object.options_list.any? { |option| option.name.eql?(option_name) }
+  def has_option?(object, option_id)
+    object.options_list.any? { |option| option.id.eql?(option_id) }
   end
 
   it 'can add options' do
@@ -40,7 +40,7 @@ describe Configurable do
 
   it 'retrieves default values' do
     option = @object.option_get EXISTING_OPTION
-    expect(option.name).to eq(EXISTING_OPTION)
+    expect(option.id).to eq(EXISTING_OPTION)
     expect(option.value).to eq(DEFAULT_VALUE)
     expect(option.default).to eq(DEFAULT_VALUE)
     expect(option.description).to eq(DESCRIPTION)

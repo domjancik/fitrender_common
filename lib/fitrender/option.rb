@@ -1,14 +1,14 @@
 module Fitrender
   # A single configuration option
   class Option
-    attr_accessor :name, :default, :description
+    attr_accessor :id, :default, :description
     attr_writer :value
 
-    # @param [String] name The name of the option
+    # @param [String] id The id of the option
     # @param [Object] default The default value to use when no other value is set through the value= method
     # @param [String] description The human readable purpose of this option
-    def initialize(name, default, description, value = nil)
-      @name = name
+    def initialize(id, default, description, value = nil)
+      @id = id
       @default = default
       @description = description
       @value = value
@@ -24,7 +24,7 @@ module Fitrender
 
     def to_hash
       {
-          'name' => name,
+          'id' => id,
           'default' => default,
           'description' => description,
           'value' => value
@@ -33,7 +33,7 @@ module Fitrender
 
     def self.from_hash(hash)
       value = hash['value'].eql?(hash['default']) ? nil : hash['value']
-      self.new hash['name'], hash['default'], hash['description'], value
+      self.new hash['id'], hash['default'], hash['description'], value
     end
 
     def ==(o)
@@ -45,7 +45,7 @@ module Fitrender
     protected
 
     def state
-      [ @name, @default, @description, @value ]
+      [ @id, @default, @description, @value ]
     end
   end
 end

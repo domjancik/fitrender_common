@@ -56,9 +56,9 @@ module Fitrender
     private
 
     def option_add_object(option)
-      name = option.name
-      @config[name] = option
-      option_load(name) if self.respond_to? :option_load
+      id = option.id
+      @config[id] = option
+      option_load(id) if self.respond_to? :option_load
     end
   end
 end

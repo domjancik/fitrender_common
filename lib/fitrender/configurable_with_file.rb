@@ -5,7 +5,7 @@ module Fitrender
     def config_save
       modified_options = {}
       @config.each_value do |option|
-        modified_options[option.name] = option.value unless option.default?
+        modified_options[option.id] = option.value unless option.default?
       end
 
       if FileTest.exists? config_directory
