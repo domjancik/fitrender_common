@@ -31,7 +31,7 @@ describe Fitrender::Adaptor::Renderer do
   it 'has a working to_hash and from_hash methods, excluding generator options' do
     deserialized = get_deserialized
 
-    expect(deserialized.name).to eq(@renderer.name)
+    expect(deserialized.id).to eq(@renderer.id)
     expect(deserialized.extension).to eq(@renderer.extension)
     expect(deserialized.version).to eq(@renderer.version)
   end

@@ -47,7 +47,7 @@ module Fitrender
 
       def detect_renderer(scene)
         renderer_name = scene.renderer_id
-        renderer = @renderers.find { |renderer| renderer.name.eql? renderer_name }
+        renderer = @renderers.find { |renderer| renderer.id.eql? renderer_name }
         raise Fitrender::RendererNotFoundError unless renderer
         renderer
       end
@@ -132,7 +132,7 @@ module Fitrender
       end
 
       def renderer(renderer_id)
-        renderer = @renderers.find { |renderer| renderer.name.eql?(renderer_id) }
+        renderer = @renderers.find { |renderer| renderer.id.eql?(renderer_id) }
         raise Fitrender::RendererNotFoundError.new(renderer_id) unless renderer
         renderer
       end

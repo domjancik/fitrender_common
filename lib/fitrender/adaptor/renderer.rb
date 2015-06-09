@@ -1,14 +1,14 @@
 module Fitrender
   module Adaptor
     class Renderer
-      attr_accessor :name, :extension, :generator, :version
+      attr_accessor :id, :extension, :generator, :version
 
-      # @param [String] name The name of the renderer, eg. Blender
+      # @param [String] id The id of the renderer, eg. Blender
       # @param [String] extension Supported file extension by this renderer, eg. blend
       # @param [Object] generator
       # @param [Object] version Optional. The version of the renderer available in the system.
-      def initialize(name, extension, generator, version = 'Unspecified')
-        @name = name
+      def initialize(id, extension, generator, version = 'Unspecified')
+        @id = id
         @extension = extension
         @generator = generator
         generator.renderer = self unless generator.nil?
@@ -17,7 +17,7 @@ module Fitrender
 
       def to_hash
         {
-            'name' => @name,
+            'id' => @id,
             'extension' => @extension,
             'version' => @version,
             'generator_options' => @generator.options_hashlist
@@ -27,7 +27,7 @@ module Fitrender
       def self.from_hash(hash)
         generator = Fitrender::Adaptor::Generator.new
         generator.options_init_by_hashlist hash['generator_options']
-        self.new hash['name'], hash['extension'], generator, hash['version']
+        self.new hash['id'], hash['extension'], generator, hash['version']
       end
 
       def generate_submissions(scene)
