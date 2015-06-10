@@ -31,6 +31,7 @@ module Fitrender
       end
 
       def generate_submissions(scene)
+        @generator.options_load_hash(scene.options)
         @generator.generate scene
       end
 
