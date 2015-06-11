@@ -39,8 +39,8 @@ module Fitrender
       ### Scene submission
 
       # Submit a new scene
-      # @return [Array] array of internal job ids
-      # @param [Fitrender::Scene] scene
+      # @return [Array] array of Fitrender::Adaptor::Job (or similar) instances
+      # @param [Fitrender::Adaptor::Scene] scene
       def submit(scene)
         raise Fitrender::InterfaceNotImplementedError
       end

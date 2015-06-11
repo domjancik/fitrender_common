@@ -48,8 +48,10 @@ module Fitrender
 
     # Load option values from the given hash
     def options_load_hash(hash)
-      hash.each do |key, value|
-        option_set_value key, value
+      unless hash.nil?
+        hash.each do |key, value|
+          option_set_value key, value
+        end
       end
     end
 
