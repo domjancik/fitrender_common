@@ -15,7 +15,6 @@ module Fitrender
       end
 
       File.open(config_filename, 'w') do |file|
-        puts Psych.dump(modified_options)
         file.write(Psych.dump(modified_options))
       end
     end
