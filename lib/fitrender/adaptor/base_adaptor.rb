@@ -72,22 +72,11 @@ module Fitrender
 
       ### Configuration
 
-      # From configurable:
-      # config_add
-      # config_set
-      # config_get
-      # config_list
-
-      # Get an overview of configurable variabels of the compute backend
-      # @return [Hash] Hash of configurable variables and values
-      def config_overview
-        raise Fitrender::InterfaceNotImplementedError
-      end
-
-      # Set a config variable in the backend
-      def config_set(name, value)
-        raise Fitrender::InterfaceNotImplementedError
-      end
+      # From Configurable:
+      # option_add
+      # option_set
+      # option_get
+      # option_list
 
       ### Status
 
