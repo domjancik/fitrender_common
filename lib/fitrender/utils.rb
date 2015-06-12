@@ -36,7 +36,7 @@ module Fitrender
     #   'SSLError'.underscore.camelize # => "SslError"
     def self.underscore(input)
       word = input.to_s.dup
-      word.gsub!('::', '/')
+      word.gsub!('::', '_')
       word.gsub!(/([A-Z\d]+)([A-Z][a-z])/,'\1_\2')
       word.gsub!(/([a-z\d])([A-Z])/,'\1_\2')
       word.tr!("-", "_")
