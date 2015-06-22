@@ -21,18 +21,21 @@ module Fitrender
             'id' => @id,
             'extension' => @extension,
             'version' => @version,
-            'generator_options' => @generator.options_hashlist
+            'generator_options' => @generator.options_hashlist,
+            'renderer_options' => options_hashlist
         }
       end
 
       def self.from_hash(hash)
         generator = Fitrender::Adaptor::Generator.new
         generator.options_init_by_hashlist hash['generator_options']
+
         renderer = self.new
         renderer.id = hash['id']
         renderer.extension = hash['extension']
         renderer.generator = generator
         renderer.version = hash['version']
+        renderer.options_init_by_hashlist hash['renderer_options']
 
         renderer
       end
