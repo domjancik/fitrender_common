@@ -17,7 +17,7 @@ module Fitrender
     end
 
     def option_get(name)
-      raise Fitrender::NotFoundError.new("Option #{name}") unless @config.has_key? name
+      raise Fitrender::OptionNotFoundError.new("Option #{name}") unless @config.has_key? name
       @config[name]
     end
 
@@ -32,7 +32,7 @@ module Fitrender
     end
 
     def options_list
-      # TODO rewrite to tuse key, value
+      # TODO rewrite to use key, value
       @config.inject([]) { |a, option| a << option[1] }
     end
 

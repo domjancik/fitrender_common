@@ -14,6 +14,9 @@ module Fitrender
   class RendererNotFoundError < NotFoundError
   end
 
+  class OptionNotFoundError < NotFoundError
+  end
+
   class FileNotFoundError < NotFoundError
   end
 

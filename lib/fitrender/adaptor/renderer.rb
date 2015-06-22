@@ -1,10 +1,14 @@
 module Fitrender
   module Adaptor
     class Renderer
+      include Fitrender::Configurable
+
       attr_accessor :id, :extension, :version
       attr_reader :generator
 
       def initialize
+        super
+
         @id = 'Renderer'
         @extension = 'ext'
         @generator = nil
