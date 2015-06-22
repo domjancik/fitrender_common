@@ -2,6 +2,8 @@ module Fitrender
   module Configurable
     # TODO: Settings define method should take blocks for actions on save: load:
     # TODO: replace option/config_load/save with callbacks set from ConfigurableWithFile
+    # TODO: DSL methods so adding of options can be done outside of the initialize method
+    # TODO: Support for reading via object.option_key and setting via object.option_key= using method_missing
 
     def initialize
       super

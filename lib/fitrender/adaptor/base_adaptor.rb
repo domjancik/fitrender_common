@@ -132,7 +132,7 @@ module Fitrender
       # @return [Array] an array of submissions from the scene's renderer's generator
       def generate_submissions(scene)
         raise Fitrender::FileNotFoundError unless FileTest.file? scene.path
-        arr = *(detect_renderer(scene).generate_submissions(scene))
+        arr = *(detect_renderer(scene).generate_submissions(scene, self))
         arr
       end
     end
