@@ -20,7 +20,11 @@ describe Fitrender::Adaptor::Renderer do
   VERSION = '1'
 
   before :context do
-    @renderer = Fitrender::Adaptor::Renderer.new NAME, EXTENSION, GENERATOR, VERSION
+    @renderer = Fitrender::Adaptor::Renderer.new
+    @renderer.id = NAME
+    @renderer.extension = EXTENSION
+    @renderer.generator = GENERATOR
+    @renderer.version = VERSION
   end
 
   def get_deserialized

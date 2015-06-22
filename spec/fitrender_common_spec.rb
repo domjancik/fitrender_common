@@ -9,7 +9,10 @@ describe Fitrender::Adaptor::BaseAdaptor do
     @adaptor = Fitrender::Adaptor::BaseAdaptor.new
     @scene = Fitrender::Adaptor::Scene.new
     @scene.renderer_id = RENDERER_NAME
-    @renderer = Fitrender::Adaptor::Renderer.new(RENDERER_NAME, RENDERER_EXTENSION, nil)
+
+    @renderer = Fitrender::Adaptor::Renderer.new
+    @renderer.id = RENDERER_NAME
+    @renderer.extension = RENDERER_EXTENSION
   end
 
   it 'has a version number' do

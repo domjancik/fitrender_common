@@ -33,6 +33,8 @@ module Fitrender
         renderer.extension = hash['extension']
         renderer.generator = generator
         renderer.version = hash['version']
+
+        renderer
       end
 
       def generate_submissions(scene, adaptor)
