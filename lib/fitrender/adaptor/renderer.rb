@@ -8,7 +8,7 @@ module Fitrender
         @id = 'Renderer'
         @extension = 'ext'
         @generator = nil
-        @version = version
+        @version = 'Unknown'
       end
 
       def generator=(generator)
